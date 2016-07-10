@@ -9,8 +9,8 @@ export default Ember.Route.extend({
   },
 
   model: function(params) {
-    let searchString = params.searchString;
-    let geturl = `http://itunes.apple.com/search?term=${searchString}&entity=song`;
+    let searchString = params.id;
+    let geturl = `http://itunes.apple.com/lookup?id=${searchString}&entity=album`;
     let self = this;
 
     Ember.$.ajax({

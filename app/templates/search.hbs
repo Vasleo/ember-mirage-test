@@ -33,7 +33,7 @@
   {{#each searchResults.results as |item|}}
     <tr>
       <td>
-        {{item.artistName}}
+        {{#link-to "albums" (query-params id=item.artistId)}} {{item.artistName}} {{/link-to}}
       </td>
       <td>
         {{#link-to "album" (query-params id=item.collectionId)}} {{item.collectionName}} {{/link-to}}

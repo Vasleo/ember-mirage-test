@@ -47,3 +47,44 @@
     </td>
   </tr>
 </table>
+
+<br/><br/><br/>
+
+<table border="1px">
+  <tr>
+    <th>
+      Track No
+    </th>
+    <th>
+      TrackName
+    </th>
+    <th>
+      TrackDuration
+    </th>
+    <th>
+      TrackExplicitness
+    </th>
+    <th>
+      TrackPrice
+    </th>
+  </tr>
+  {{#each searchResults.results as |item|}}
+    <tr>
+      <td>
+        {{item.trackNumber}}
+      </td>
+      <td>
+        {{item.trackName}}
+      </td>
+      <td>
+        {{item.trackTimeMillis}}
+      </td>
+      <td>
+        {{item.trackExplicitness}}
+      </td>
+      <td>
+        {{item.trackPrice}}
+      </td>
+    </tr>
+  {{/each}}
+</table>

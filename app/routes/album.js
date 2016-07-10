@@ -11,7 +11,7 @@ export default Ember.Route.extend({
   model: function(params) {
     let id = params.id;
     Ember.Logger.log('ID PARAM-', id);
-    let geturl = `http://itunes.apple.com/lookup?id=${id}`;
+    let geturl = `http://itunes.apple.com/lookup?id=${id}&entity=song`;
     let self = this;
 
     Ember.$.ajax({

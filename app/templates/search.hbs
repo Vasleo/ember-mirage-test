@@ -1,0 +1,64 @@
+{{outlet}}
+
+<table border="1px">
+  <tr>
+    <th>
+      ArtistName
+    </th>
+    <th>
+      CollectionName
+    </th>
+    <th>
+      Kind
+    </th>
+    <th>
+      Genra
+    </th>
+    <th>
+      TrackName
+    </th>
+    <th>
+      ReleaseDate
+    </th>
+    <th>
+      IsStreaming
+    </th>
+    <th>
+      Price
+    </th>
+    <th>
+      ViewUrl
+    </th>
+  </tr>
+  {{#each searchResults.results as |item|}}
+    <tr>
+      <td>
+        {{item.artistName}}
+      </td>
+      <td>
+        {{#link-to "album" (query-params id=item.collectionId)}} {{item.collectionName}} {{/link-to}}
+      </td>
+      <td>
+        {{item.kind}}
+      </td>
+      <td>
+        {{item.primaryGenreName}}
+      </td>
+      <td>
+        {{item.trackName}}
+      </td>
+      <td>
+        {{item.releaseDate}}
+      </td>
+      <td>
+        {{item.isStreamable}}
+      </td>
+      <td>
+        {{item.trackPrice}}
+      </td>
+      <td>
+        <a target="blank" href={{item.trackViewUrl}}>View</a>
+      </td>
+    </tr>
+  {{/each}}
+</table>

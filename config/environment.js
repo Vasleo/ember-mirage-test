@@ -17,7 +17,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    
+
     contentSecurityPolicy: {
         'Access-Control-Allow-Origin': "'self' http://localhost:4200/ http://localhost:4200 http://itunes.apple.com"
     }
@@ -50,7 +50,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
   }
 
   return ENV;

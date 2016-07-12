@@ -3,11 +3,19 @@ import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
 
-  normalize: function(modelClass, resourceHash, prop) {
-    Ember.Logger.log('&&&&&&&&&&');
-    // Ember.Logger.log('modelClass-', modelClass);
-    // Ember.Logger.log('resourceHash-', resourceHash);
-    // Ember.Logger.log('prop-', prop);
+  normalizeResponse: function(store, primaryModelClass, payload, id, requestType) {
+    let data = {
+          "data": {
+            "type": "search-response",
+            "id": payload.id,
+            "attributes": {
+              "resultCount": payload.resultCount,
+              "results": payload.results
+            }
+          }
+        };
+
+    return data;
   }
 
 });

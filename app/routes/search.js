@@ -30,8 +30,8 @@ export default Ember.Route.extend({
     let searchString = params.searchString;
     let self = this;
     this.get('store').queryRecord('search-response', {searchString: searchString}).then( function(responseData) {
-      Ember.Logger.log('RESPONSE=======>>', responseData);
-      self.controller.set('searchResults', responseData);
+      Ember.Logger.log('RESPONSE=======>>', responseData.get('data'));
+      self.controller.set('searchResults', responseData.get('data'));
     });
   }
 

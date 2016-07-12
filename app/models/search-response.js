@@ -20,7 +20,6 @@ export default Model.extend({
   // Price: attr(),
   //
   // ViewUrl: attr()
-  //resultCount: attr(),
-  //results: attr()
-  response: attr()
+  resultCount: attr(),
+  results: attr()
 });

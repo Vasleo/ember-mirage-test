@@ -25,8 +25,8 @@ export default DS.RESTAdapter.extend({
 
           let searchResponse = {
                 id: `search/${searchString}`,
-                resultCount: res.resultCount,
-                results: res.results
+                //resultCount: res.resultCount,
+                details: res.results
               };
 
           return searchResponse;

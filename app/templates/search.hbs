@@ -30,31 +30,31 @@
       ViewUrl
     </th>
   </tr>
-  {{#each searchResults.results as |item|}}
+  {{#each searchResults.details as |item|}}
     <tr>
       <td>
-        {{#link-to "albums" (query-params id=item.artistId)}} {{item.artistName}} {{/link-to}}
+        {{#link-to "albums" (query-params id=item.ArtistId)}} {{item.ArtistName}} {{/link-to}}
       </td>
       <td>
-        {{#link-to "album" (query-params id=item.collectionId)}} {{item.collectionName}} {{/link-to}}
+        {{#link-to "album" (query-params id=item.CollectionId)}} {{item.CollectionName}} {{/link-to}}
       </td>
       <td>
-        {{item.kind}}
+        {{item.Kind}}
       </td>
       <td>
-        {{item.primaryGenreName}}
+        {{item.Genra}}
       </td>
       <td>
-        {{item.trackName}}
+        {{item.TrackName}}
       </td>
       <td>
-        {{item.releaseDate}}
+        {{item.ReleaseDate}}
       </td>
       <td>
-        {{item.isStreamable}}
+        {{item.IsStreaming}}
       </td>
       <td>
-        {{item.trackPrice}}
+        {{item.Price}}
       </td>
       <td>
         <a target="blank" href={{item.trackViewUrl}}>View</a>

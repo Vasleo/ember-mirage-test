@@ -4,14 +4,13 @@ import DS from 'ember-data';
 export default DS.RESTAdapter.extend({
 
   host: 'http://itunes.apple.com',
-  namespace: 'search',
+  namespace: 'albums',
 
-  queryRecord: function(store, type, query) {
+  findRecord: function(store, type, id) {
+      let query = JSON.parse(id);
       Ember.Logger.log('query-', query);
-      Ember.Logger.log('type-', type);
-
       let searchString = query.searchString;
-      let geturl = `http://itunes.apple.com/search?term=${searchString}&entity=song`;
+      let geturl = `http://itunes.apple.com/lookup?id=${searchString}&entity=album`;
 
       return Ember.$.ajax({
           method: "get",
@@ -24,7 +23,7 @@ export default DS.RESTAdapter.extend({
           // Ember.Logger.log('res.results=', res.results);
 
           let searchResponse = {
-                id: `search/${searchString}`,
+                id: `lookup/album/${searchString}`,
                 resultCount: res.resultCount,
                 results: res.results
               };

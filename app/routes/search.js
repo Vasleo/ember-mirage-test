@@ -29,9 +29,16 @@ export default Ember.Route.extend({
   model: function(params) {
     let searchString = params.searchString;
     let self = this;
-    this.get('store').queryRecord('search-response', {searchString: searchString}).then( function(responseData) {
+    // this.get('store').queryRecord('search-response', {searchString: searchString}).then( function(responseData) {
+    //   Ember.Logger.log('RESPONSE=======>>', responseData.get('data'));
+    //   //self.controller.set('searchResults', responseData.get('data'));
+    //   Ember.set(self.controller, 'searchResults', responseData.get('data'));
+    // });
+
+    this.get('store').queryRecord('search-details', {searchString: searchString}).then( function(responseData) {
       Ember.Logger.log('RESPONSE=======>>', responseData.get('data'));
-      self.controller.set('searchResults', responseData.get('data'));
+      //self.controller.set('searchResults', responseData.get('data'));
+      Ember.set(self.controller, 'searchResults', responseData.get('data'));
     });
   }
 
